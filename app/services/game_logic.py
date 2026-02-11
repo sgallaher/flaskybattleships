@@ -15,4 +15,6 @@ def process_shot(game, player, row, col):
     db.session.add(shot)
     db.session.commit()
 
+    return hit
+
 
