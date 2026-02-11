@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="game" 
+    data-game-id="{{ game.id }}" 
+    data-player-id="{{ current_user.id }}" 
+    data-status="{{ game.status }}">
+
+    <div class="boards">
+        <div>
+            <h3>Your Fleet</h3>
+            <div id="player-board" class="grid"></div>
+        </div>
+        <div>
+            <h3>Enemy Waters</h3>
+            <div id="enemy-board" class="grid"></div>
+        </div>
+    </div>  
+    <div class="controls">
+        <div id="placement-controls">
+        <label for="ship-select">Select Ship:</label>
+        <select id="ship-select">
+            <option value="5">Carrier (5)</option>
+            <option value="4">Battleship (4)</option>
+            <option value="3">Cruiser (3)</option>
+            <option value="3">Submarine (3)</option>
+            <option value="2">Destroyer (2)</option>
+        </select>
+        <button id="rotate-btn">Rotate Ship</button>
+        </div>
+        <p id="status-text">Waiting ...</p>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+   
+{% endblock %}
